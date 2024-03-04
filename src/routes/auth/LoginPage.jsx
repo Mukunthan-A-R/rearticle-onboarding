@@ -14,31 +14,20 @@ const LoginPage = () => {
         <div className=" flex items-center justify-center">
           <img className="w-26" src={Logo} alt="Rearticle Logo" />
         </div>
-        <div className="flex gap-y-6 flex-col">
-          <h3 className="text-3xl text-[#424242] text-center font-bold">
-            Create your account
-          </h3>
-          <InputFieldComponent
-            type="email"
-            placeholder="Email address"
-          ></InputFieldComponent>
-          {continued && <PasswordButtonComponent></PasswordButtonComponent>}
-          <PrimaryButtonComponent
-            onClick={() => {
-              console.log(continued);
-              setContinued(!continued);
-            }}
-            name="Continue"
-          ></PrimaryButtonComponent>
-          <p className="text-[#424242b3] text-xs/[22px] font-medium cursor-default text-center">
-            Don't have an account ?
-            <a href="#" className="text-blue-600 ml-1">
-              Sign up
-            </a>
-          </p>
-          {!continued && <SeperatorComponent></SeperatorComponent>}
-          {!continued && <RegistrationComponent></RegistrationComponent>}
-        </div>
+        <h3 className="text-3xl text-[#424242] text-center font-bold">
+          Verify your email
+        </h3>
+        <p className="text-center mt-3 text-[#424242b3] font-normal leading-5">
+          We sent an email to cssaiganesh2001@gmail.com <br />
+          Click the link inside to get started
+        </p>
+        <a
+          href="#"
+          className="text-center text-[#2262C6] text-xs font-bold mt-3 mb-5"
+        >
+          <p>Resend email</p>
+        </a>
+        <PrimaryButtonComponent name="Continue"></PrimaryButtonComponent>
       </div>
       <div className="flex absolute bottom-5">
         <div>
