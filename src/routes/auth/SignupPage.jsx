@@ -8,8 +8,15 @@ import SeperatorComponent from "../../components/ui/SeperatorComponent";
 
 const SignupPage = () => {
   const [continued, setContinued] = useState(false);
+  const [enable, setEnable] = useState("hidden");
+  // To handle Edit button in the email field
   const handleEdit = () => {
-    setContinued(!continued);
+    setContinued(false);
+  };
+  // Enable Edit Button
+  const setEnbale = () => {
+    console.log("Clicked");
+    // enable(true);
   };
   return (
     <div className="flex justify-center items-center h-svh relative w-full">
@@ -24,13 +31,19 @@ const SignupPage = () => {
           <InputFieldComponent
             type="email"
             placeholder="Email address"
-            onClick={handleEdit}
+            onClick={() => {
+              handleEdit();
+              setEnable("hidden");
+            }}
+            enable={enable}
           ></InputFieldComponent>
-          {continued && <PasswordButtonComponent></PasswordButtonComponent>}
+          {continued && <PasswordButtonComponent />}
           <PrimaryButtonComponent
             onClick={() => {
               console.log(continued);
-              setContinued(!continued);
+              setContinued(true);
+              if (enable === "hidden") setEnable("");
+              else setEnable("hidden");
             }}
             name="Continue"
           ></PrimaryButtonComponent>
@@ -40,8 +53,8 @@ const SignupPage = () => {
               Sign up
             </a>
           </p>
-          {!continued && <SeperatorComponent></SeperatorComponent>}
-          {!continued && <RegistrationComponent></RegistrationComponent>}
+          {!continued && <SeperatorComponent />}
+          {!continued && <RegistrationComponent />}
         </div>
       </div>
       <div className="flex absolute bottom-5">
