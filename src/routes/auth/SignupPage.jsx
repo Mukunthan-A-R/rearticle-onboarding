@@ -42,8 +42,10 @@ const SignupPage = () => {
             onClick={() => {
               console.log(continued);
               setContinued(true);
-              if (enable === "hidden") setEnable("");
-              else setEnable("hidden");
+              if (continued === false) {
+                if (enable === "hidden") setEnable("");
+                else setEnable("hidden");
+              }
             }}
             name="Continue"
           ></PrimaryButtonComponent>
